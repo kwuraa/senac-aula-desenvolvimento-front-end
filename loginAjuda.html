@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>SenacFlix - ajuda</title>
+    <meta name="description" content="Senacflix - Plataforma de Videos" />
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="assets/css/login ajuda/estilo-profile.css"
+    />
+    <script src="assets/js/reset.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header class="pagina-cabecalho conteudo-base">
+      <img
+        class="cabecalho-logo"
+        src="assets/header/LOGO.png"
+        alt="Logo do Senac"
+      />
+    </header>
+    <section id="loginAjuda" class="conteudo-base">
+      <div class="text-centralizado conteudo-base">
+        <h1>
+          Esqueci meu email / <br />
+          senha
+        </h1>
+        <div>
+          <p>Como você prefere redefinir sua senha?</p>
+          <input
+            id="redefinirEmail"
+            type="radio"
+            name="redefinir"
+            value="email"
+            checked
+          />
+          <label for="redefinirEmail">Email</label>
+        </div>
+        <div>
+          <input id="redefinirSms" type="radio" name="redefinir" value="sms" />
+          <label for="redefinirSms">SMS</label>
+        </div>
+        <div>
+          <p>Enviaremos um email com instruções de como redefinir sua senha.</p>
+          <form>
+            <input
+              type="text"
+              name="informacao"
+              placeholder="digite seu email/telefone"
+            />
+            <button type="button">Enviar</button>
+          </form>
+          <a href="#">Não me lembro do meu email ou telefone</a>
+        </div>
+      </div>
+      <div>
+        <p>
+          Para que possamos encontrar sua conta, informe todos os dados abaixo:
+        </p>
+        <form>
+          <div>
+            <label for="ajudaNomeConta">Nome da conta</label>
+            <input id="ajudaNomeConta" type="text" name="nomeConta" />
+          </div>
+          <div>
+            <label for="ajudaSobrenomeConta">Sobrenome da conta</label>
+            <input
+              id="ajudaSobrenomeConta"
+              type="text"
+              name="sobrenome Conta"
+            />
+          </div>
+          <div>
+            <label for="ajudaCartao"
+              >Cartão de crédito ou debito cadastrado</label
+            >
+            <input id="ajudaCartao" type="text" name="cartao" />
+          </div>
+          <div>
+            <button type="button">Encontrar conta</button>
+            <button type="button">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
