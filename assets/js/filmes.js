@@ -16,6 +16,135 @@ const perfis = [
   },
 ];
 
+const filmes = [
+  {
+    id: 1,
+    categorias: ["Terror", "Populares", "Adicionados Recentemente"],
+    nome: "Teste filme terror",
+    etaria: "16",
+    tempo: 180,
+    ano_lancamento: "2021",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+  },
+  {
+    id: 2,
+    categorias: ["Terror", "Populares"],
+    nome: "Teste serie terror",
+    etaria: "18",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+    temporadas: [
+      {
+        temporada: 1,
+        ano_lancamento: "2018",
+        episodios: [
+          {
+            id: "1.1",
+            nome: "EP teste",
+            descricao:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+            tempo: 50,
+          },
+          {
+            id: "1.2",
+            nome: "EP teste 2",
+            descricao:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+            tempo: 52,
+          },
+          {
+            id: "1.3",
+            nome: "EP teste 3",
+            descricao:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+            tempo: 55,
+          },
+        ],
+      },
+      {
+        temporada: 2,
+        ano_lancamento: "2019",
+        episodios: [
+          {
+            id: "2.1",
+            nome: "EP teste",
+            descricao:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+            tempo: 50,
+          },
+          {
+            id: "2.2",
+            nome: "EP teste 2",
+            descricao:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+            tempo: 52,
+          },
+          {
+            id: "2.3",
+            nome: "EP teste 3",
+            descricao:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+            tempo: 55,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    categorias: ["Terror", "Populares", "Adicionados Recentemente"],
+    nome: "Teste filme terror #2",
+    etaria: "12",
+    tempo: 50,
+    ano_lancamento: "2020",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+  },
+  {
+    id: 4,
+    categorias: ["Terror", "Populares"],
+    nome: "Teste filme terror #3",
+    etaria: "18",
+    tempo: 180,
+    ano_lancamento: "2019",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+  },
+  {
+    id: 5,
+    categorias: ["Terror", "Populares"],
+    nome: "Teste filme terror #4",
+    etaria: "13",
+    tempo: 55,
+    ano_lancamento: "2021",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+  },
+  {
+    id: 6,
+    categorias: ["Terror", "Populares"],
+    nome: "Teste filme terror",
+    etaria: "18",
+    tempo: 90,
+    ano_lancamento: "1964",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+  },
+];
+
 const novidades = [
   {
     imagem: "assets/imagens/infantil.png",
@@ -40,10 +169,16 @@ const callbackClassList = function (base, classItem) {
   };
 };
 
-const encontrarFilhos = function (base, funcaoFilter) {
+const encontrarFilho = function (base, funcaoFilter) {
   return Object.keys(base)
     .filter(funcaoFilter)
     .map((chave) => base[chave])[0];
+};
+
+const encontrarFilhos = function (base, funcaoFilter) {
+  return Object.keys(base)
+    .filter(funcaoFilter)
+    .map((chave) => base[chave]);
 };
 
 function carregarPerfil() {
@@ -51,7 +186,7 @@ function carregarPerfil() {
 
   const perfilElemento = document.querySelector("#meuPerfil");
 
-  const perfilFigure = encontrarFilhos(
+  const perfilFigure = encontrarFilho(
     perfilElemento.childNodes,
     callbackTagName(perfilElemento.childNodes, "figure")
   );
@@ -73,19 +208,19 @@ function carregarPerfis() {
     .filter((perfil) => perfil.id !== meuPerfil.id)
     .forEach((perfil) => {
       const modeloItem = modeloPerfil.cloneNode(true);
-      const itemLink = encontrarFilhos(
+      const itemLink = encontrarFilho(
         modeloItem.childNodes,
         callbackClassList(modeloItem.childNodes, "dropdown-item")
       );
       itemLink.dataset.perfil = perfil.id;
       itemLink.addEventListener("click", selecionarPerfil);
-      const itemLinkTexto = encontrarFilhos(
+      const itemLinkTexto = encontrarFilho(
         itemLink.childNodes,
         callbackTagName(itemLink.childNodes, "span")
       );
       itemLinkTexto.innerText = perfil.nome;
 
-      const itemFigure = encontrarFilhos(
+      const itemFigure = encontrarFilho(
         itemLink.childNodes,
         callbackTagName(itemLink.childNodes, "figure")
       );
@@ -121,18 +256,18 @@ function notificacoes() {
   novidadesNaoLidas.forEach((novidade) => {
     const itemModelo = modelo.cloneNode(true);
 
-    const itemLink = encontrarFilhos(
+    const itemLink = encontrarFilho(
       itemModelo.childNodes,
       callbackClassList(itemModelo.childNodes, "dropdown-item")
     );
 
-    const itemImg = encontrarFilhos(
+    const itemImg = encontrarFilho(
       itemLink.childNodes,
       callbackTagName(itemLink.childNodes, "img")
     );
     itemImg.src = novidade.imagem;
 
-    const itemTextos = encontrarFilhos(
+    const itemTextos = encontrarFilho(
       itemLink.childNodes,
       callbackClassList(itemLink.childNodes, "bloco-novidades-textos")
     );
@@ -156,7 +291,7 @@ function notificacoes() {
 function carregarNovidades() {
   const novidadesNaoLidas = novidades.filter((el) => !el.visualizado);
   const blocoNovidade = document.querySelector("#blocoNovidades");
-  const badge = encontrarFilhos(
+  const badge = encontrarFilho(
     blocoNovidade.childNodes,
     callbackClassList(blocoNovidade.childNodes, "badge")
   );
@@ -165,7 +300,7 @@ function carregarNovidades() {
     badge.classList.add("d-none");
   } else {
     badge.classList.remove("d-none");
-    const badgeText = encontrarFilhos(
+    const badgeText = encontrarFilho(
       badge.childNodes,
       callbackClassList(badge.childNodes, "novidades-texto")
     );
@@ -176,9 +311,66 @@ function carregarNovidades() {
 }
 
 function visualizarNovidades(event) {
-  novidades.forEach((el) => el.visualizado = true)
+  novidades.forEach((el) => (el.visualizado = true));
 
   carregarNovidades();
+}
+
+function buscarFilmes(event) {
+  event.preventDefault();
+  const ativo = event.currentTarget.dataset.ativo === "true";
+
+  if (!ativo) {
+    event.currentTarget.parentNode.classList.add("ativo");
+
+    event.currentTarget.dataset.ativo = true;
+  } else {
+    event.currentTarget.parentNode.classList.remove("ativo");
+    event.currentTarget.dataset.ativo = false;
+  }
+}
+
+function carregarSlideFilmes() {
+  const categorias = {};
+  for (let i = 0; i < filmes.length; i++) {
+    for (let j = 0; j < filmes[i].categorias.length; j++) {
+      if (!categorias[filmes[i].categorias[j]])
+        categorias[filmes[i].categorias[j]] = [];
+      categorias[filmes[i].categorias[j]].push(filmes[i]);
+    }
+  }
+  const modelo = document.querySelector(
+    ".listagem-categorias .categorias-item"
+  );
+  modelo.classList.remove("d-none");
+  modelo.remove();
+
+  const base = document.querySelector(".listagem-categorias");
+  Object.keys(categorias).forEach((categoria) => {
+    const modeloItem = modelo.cloneNode(true);
+
+    const categoria_titulo = encontrarFilho(
+      modeloItem.childNodes,
+      callbackClassList(modeloItem.childNodes, "categoria-titulo")
+    );
+    categoria_titulo.innerText = categoria;
+
+    const carousel = encontrarFilho(
+      modeloItem.childNodes,
+      callbackClassList(modeloItem.childNodes, "carousel")
+    );
+    const id_carousel = `carousel${categoria.split(" ").join("_")}`;
+    carousel.id = id_carousel;
+
+    encontrarFilhos(
+      carousel.childNodes,
+      callbackClassList(carousel.childNodes, "carousel-control")
+    ).forEach((control) => {
+      control.dataset.bsTarget = id_carousel;
+    });
+
+    base.appendChild(modeloItem);
+  });
 }
 
 window.onload = function () {
@@ -186,12 +378,17 @@ window.onload = function () {
   carregarPerfis();
   carregarNovidades();
   notificacoes();
+  carregarSlideFilmes();
 
   botoesSair();
 
   document
     .querySelector("#blocoNovidades")
     .addEventListener("click", visualizarNovidades);
+
+  document
+    .querySelector("#buscarFilmes")
+    .addEventListener("click", buscarFilmes);
 };
 
 redirecionarLogin(false);

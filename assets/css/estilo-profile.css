@@ -42,6 +42,11 @@ a:hover {
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.imagem-background.imagem-background--cover {
+  background-size: cover;
 }
 
 .text-centralizado {
@@ -97,6 +102,13 @@ a:hover {
 
 .pagina-cabecalho .navbar-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.pagina-cabecalho--fixo {
+  position: sticky;
+  z-index: 3;
+  top: 0px;
+  
 }
 
 /*.titulo-destaque {
@@ -235,16 +247,25 @@ a:hover {
 }
 
 .bloco-busca {
-  border: 1px solid #c2c2c2;
+  border: 1px solid transparent;
   padding: 4px;
-  display: none;
+}
+
+.bloco-busca.ativo {
+  border-color: #c2c2c2;
+}
+
+.bloco-busca.ativo input {
+  width: 165px;
 }
 
 .bloco-busca input {
   border: initial;
   background: transparent;
   color: #c2c2c2;
-  min-width: 180px;
+  width: 0px;
+  transition: width 0.6s ease-in-out;
+  /* min-width: 180px; */
 }
 
 .bloco-busca input:focus-visible {
@@ -254,6 +275,7 @@ a:hover {
 .bloco-busca ::placeholder {
   color: #757575;
   opacity: 1; /* firefox */
+  font-size: 13px;
 }
 
 a.menu-perfil figure {
@@ -274,7 +296,7 @@ a.menu-perfil:hover {
 }
 
 .menu-perfil-itens-scroll {
-  left: -100px !important;
+  left: 4px !important;
   height: 350px;
 
   overflow-y: auto;
@@ -422,8 +444,6 @@ footer .btn-outline-light--footer {
 .carousel-control-next,
 .carousel-control-prev {
   width: 100%;
-  height: 100%;
-  max-height: 127px;
   max-width: 75px;
   min-width: 38px;
   z-index: 2;
