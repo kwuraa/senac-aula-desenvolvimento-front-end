@@ -22,8 +22,10 @@ const filmes = [
     categorias: ["Terror", "Populares", "Adicionados Recentemente"],
     nome: "Teste filme terror",
     etaria: "16",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
     tempo: 180,
     ano_lancamento: "2021",
+    imagem: "assets/imagens/filme-1.jpg",
     infos: {
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
@@ -34,6 +36,8 @@ const filmes = [
     categorias: ["Terror", "Populares"],
     nome: "Teste serie terror",
     etaria: "18",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+    imagem: "assets/imagens/filme-1.jpg",
     infos: {
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
@@ -100,8 +104,10 @@ const filmes = [
     categorias: ["Terror", "Populares", "Adicionados Recentemente"],
     nome: "Teste filme terror #2",
     etaria: "12",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
     tempo: 50,
     ano_lancamento: "2020",
+    imagem: "assets/imagens/filme-2.jpg",
     infos: {
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
@@ -112,8 +118,10 @@ const filmes = [
     categorias: ["Terror", "Populares"],
     nome: "Teste filme terror #3",
     etaria: "18",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
     tempo: 180,
     ano_lancamento: "2019",
+    imagem: "assets/imagens/filme-1.jpg",
     infos: {
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
@@ -121,11 +129,13 @@ const filmes = [
   },
   {
     id: 5,
-    categorias: ["Terror", "Populares"],
+    categorias: ["Terror"],
     nome: "Teste filme terror #4",
     etaria: "13",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
     tempo: 55,
     ano_lancamento: "2021",
+    imagem: "assets/imagens/filme-1.jpg",
     infos: {
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
@@ -133,11 +143,27 @@ const filmes = [
   },
   {
     id: 6,
-    categorias: ["Terror", "Populares"],
-    nome: "Teste filme terror",
+    categorias: ["Terror"],
+    nome: "Teste filme terror #5",
     etaria: "18",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
     tempo: 90,
     ano_lancamento: "1964",
+    imagem: "assets/imagens/filme-1.jpg",
+    infos: {
+      estrelando: ["Ator #1", "Ator #2", "Ator #3"],
+      criacao: ["diretor #1"],
+    },
+  },
+  {
+    id: 7,
+    categorias: ["Terror"],
+    nome: "Teste filme terror #6",
+    etaria: "18",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
+    tempo: 180,
+    ano_lancamento: "1999",
+    imagem: "assets/imagens/filme-1.jpg",
     infos: {
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
@@ -359,6 +385,57 @@ function carregarSlideFilmes() {
       modeloItem.childNodes,
       callbackClassList(modeloItem.childNodes, "carousel")
     );
+
+    const carousel_inner = encontrarFilho(
+      carousel.childNodes,
+      callbackClassList(carousel.childNodes, "carousel-inner")
+    );
+
+    const modeloListagemItem = encontrarFilho(
+      carousel_inner.childNodes,
+      callbackClassList(carousel_inner.childNodes, "carousel-item")
+    ).cloneNode();
+    modeloListagemItem.classList.remove("active");
+
+    carousel_inner.innerHTML = "";
+
+    const filmes_categoria = [...categorias[categoria]];
+    const carouselFilmesItens = [];
+    do {
+      const filmes_splice = filmes_categoria.splice(0, 5);
+      const carousel_item = modeloListagemItem.cloneNode();
+
+      if (carouselFilmesItens.length === 0)
+        carousel_item.classList.add("active");
+
+      const el_listagem_filmes = document.createElement("div");
+      el_listagem_filmes.classList.add(
+        ...["listagem-filmes", "d-flex", "align-itens-center"]
+      );
+
+      filmes_splice.forEach((filme) => {
+        const el_filme_link = document.createElement("a");
+        el_filme_link.href = `filme.html?id=${filme.id}`;
+        el_filme_link.classList.add("listagem-filmes-item");
+        const el_filme_figure = document.createElement("figure");
+        el_filme_figure.classList.add("mb-0");
+        const el_filme_imagem = document.createElement("div");
+        el_filme_imagem.classList.add(
+          ...["imagem-background", "imagem-background--cover"]
+        );
+        el_filme_imagem.style.backgroundImage = `url(${filme.imagem})`;
+
+        el_filme_figure.appendChild(el_filme_imagem);
+        el_filme_link.appendChild(el_filme_figure);
+        el_listagem_filmes.appendChild(el_filme_link);
+      });
+
+      carousel_item.appendChild(el_listagem_filmes);
+      carousel_inner.appendChild(carousel_item);
+
+      carouselFilmesItens.push(filmes_splice);
+    } while (filmes_categoria.length);
+
     const id_carousel = `carousel${categoria.split(" ").join("_")}`;
     carousel.id = id_carousel;
 
@@ -366,8 +443,45 @@ function carregarSlideFilmes() {
       carousel.childNodes,
       callbackClassList(carousel.childNodes, "carousel-control")
     ).forEach((control) => {
-      control.dataset.bsTarget = id_carousel;
+      control.dataset.bsTarget = `#${id_carousel}`;
     });
+
+    const navegacao = encontrarFilho(
+      carousel.childNodes,
+      callbackClassList(carousel.childNodes, "carousel-navegacao")
+    );
+
+    const carousel_controls = encontrarFilhos(
+      carousel.childNodes,
+      callbackClassList(carousel.childNodes, "carousel-control")
+    );
+
+    const modeloNavegacao = encontrarFilho(
+      navegacao.childNodes,
+      callbackTagName(navegacao.childNodes, "button")
+    ).cloneNode();
+    modeloNavegacao.classList.remove("active");
+
+    navegacao.innerHTML = "";
+
+    for (let i = 0; i < carouselFilmesItens.length; i++) {
+      const itemNavegacao = modeloNavegacao.cloneNode();
+      itemNavegacao.dataset.bsTarget = `#${id_carousel}`;
+      itemNavegacao.dataset.bsSlideTo = i;
+      itemNavegacao.arialLabel = `slide ${i}`;
+
+      if (i === 0) itemNavegacao.classList.add('active')
+      
+      navegacao.appendChild(itemNavegacao);
+    }
+
+    if (carouselFilmesItens.length > 1) {
+      carousel_controls.forEach((control) => {
+        control.dataset.bsTarget = `#${id_carousel}`;
+      });
+    } else {
+      carousel_controls.forEach((control) => control.remove());
+    }
 
     base.appendChild(modeloItem);
   });
