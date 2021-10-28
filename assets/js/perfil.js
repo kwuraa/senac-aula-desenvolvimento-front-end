@@ -1,20 +1,3 @@
-const perfis = [
-  {
-    id: 1,
-    nome: "Teste 1",
-    fundo: "dodgerblue",
-  },
-  {
-    id: 2,
-    nome: "Teste 2",
-    fundo: "red",
-  },
-  {
-    id: 3,
-    nome: "Teste 3",
-    fundo: "green",
-  },
-];
 
 var modeloPerfil;
 
