@@ -14,7 +14,7 @@
     <script src="assets/js/auth.js" type="text/javascript"></script>
     <script src="assets/js/reset.js" type="text/javascript"></script>
     <script src="assets/js/filme.js" type="text/javascript"></script>
-    
+
 </head>
 
 <body>
@@ -32,12 +32,12 @@
     </header>
     <section>
         <div class="container">
-            <div class="filme-background" style="background-image: url('assets/header/background.gif')">
+            <div class="filme-background d-none" style="background-image: url('assets/header/background.gif')">
                 <div class="row">
                     <div class=" col-12 col-md-auto filme-infos ">
                         <img src="assets/header/LOGO.png" class="img-fluid mb-5">
-                        <h1 class="mb-1">Filme #1</h1>
-                        <ul class="d-flex mb-3">
+                        <h1 class="mb-1 filme-none">Filme #1</h1>
+                        <ul class="d-flex mb-3 filme-itens">
                             <li>2021</li>
                             <li><span class="info-indicativa">16</span></li>
                             <li>1 temporada</li>
@@ -50,36 +50,35 @@
                             ..............................................
                             ..............................................
                         </p>
-                        <p class="mb-1"><span class="infos-categoria">Estrelando:</span> Ator#1, Ator#1, Ator#3</p>
-                        <p><span class="infos-categoria">Criação:</span> Diretor</p>
+                        <p class="mb-1 filme-estrelas"><span class="infos-categoria">Estrelando:</span> Ator#1, Ator#1, Ator#3</p>
+                        <p class="filme-realizacao"><span class="infos-categoria">Criação:</span> Diretor</p>
                         <div class="d-flex mt-4 align-items-center filme-acoes">
                             <button type="button" class="btn btn-light"> <span
                                     class="mdi mdi-play"></span>Assistir</button>
-                            <button type="button" class="btn btn-outline-light rounded-circle"><span
+                            <button type="button" class="btn btn-outline-light rounded-circle js-adicionar"
+                            data-adicionado="0"><span
                                     class="mdi mdi-plus"></span></button>
-                            <button type="button" class="btn btn-outline-light rounded-circle"><span
+                            <button type="button" class="btn btn-outline-light rounded-circle js-like"><span
                                     class="mdi mdi-thumb-up-outline"></span></button>
-                            <button type="button" class="btn btn-outline-light rounded-circle"><span
+                            <button type="button" class="btn btn-outline-light rounded-circle js-deslike"><span
                                     class="mdi mdi-thumb-down-outline"></span></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5 bloco-serie-temporadas d-none">
                 <div class="col-12 d-flex justify-content-between">
                     <div>
                         <h3>Episodios</h3>
-                        <p class="mb-0">Série</p>
+                        <p class="mb-0 serie-tipo">Série</p>
                     </div>
                     <div>
-                        <select class="form-select mb-1" aria-label="Default select example">
+                        <select class="form-select select-temporadas mb-1" aria-label="Default select example">
                             <optgroup label="Selecione a Temporada">
                                 <option value="1">1 Temporada</option>
-                                <option value="2">2 Temporada</option>
-                                <option value="3">3 Temporada</option>
                             </optgroup>
                         </select>
-                        <p class="mb-0"> Ano de Lançamento 2021</p>
+                        <p class="mb-0 serie-lancamento-info"> Ano de Lançamento 2021</p>
                     </div>
                 </div>
                 <div class="col-12 ">
@@ -93,8 +92,8 @@
                                     <img src="assets/imagens/filme-2.jpg" class="img-fluid">
                                 </figure>
                                 <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
+                                    <p class="mb-0 listagem-filmes-nome flex-grow-1"><strong>Ep 1#</strong></p>
+                                    <p class="mb-0 listagem-filmes-minutos">25 <br />min</p>
                                 </div>
                                 <p class="pt-3 listagem-filmes-descricao">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
@@ -103,151 +102,6 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -284,7 +138,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
         integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
         crossorigin="anonymous"></script>
-    
+
 </body>
 
 </html>

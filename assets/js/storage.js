@@ -192,16 +192,17 @@ const novidades = [
   },
 ];
 
-
 function carregarValoresStorage(chave, valores_atuais) {
   const valor_storage = JSON.parse(localStorage.getItem(chave));
 
-  if (valor_storage) valores_atuais = valor_storage;
-  else {
+  if (valor_storage) {
+    valores_atuais.length = 0;
+    valores_atuais.push(...valor_storage);
+  } else {
     localStorage.setItem(chave, JSON.stringify(valores_atuais));
   }
 }
 
 carregarValoresStorage("perfis", perfis);
 carregarValoresStorage("filmes", filmes);
-carregarValoresStorage("novidades", novidades)
+carregarValoresStorage("novidades", novidades);
