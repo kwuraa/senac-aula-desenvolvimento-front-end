@@ -34,6 +34,11 @@ const filmes = [
       estrelando: ["Ator #1", "Ator #2", "Ator #3"],
       criacao: ["diretor #1"],
     },
+    videos: [
+      { id: "1.1", nome: "Trailer 1", miniatura: "assets/imagens/filme-1.jpg" },
+      { id: "1.2", nome: "Trailer 2", miniatura: "assets/imagens/filme-2.jpg" },
+      { id: "1.3", nome: "Trailer 3", miniatura: "assets/imagens/filme-1.jpg" },
+    ],
   },
   {
     id: 2,
@@ -58,6 +63,7 @@ const filmes = [
             descricao:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
             tempo: 50,
+            miniatura: "assets/imagens/filme-1.jpg",
           },
           {
             id: "1.2",
@@ -65,6 +71,7 @@ const filmes = [
             descricao:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
             tempo: 52,
+            miniatura: "assets/imagens/filme-1.jpg",
           },
           {
             id: "1.3",
@@ -72,6 +79,7 @@ const filmes = [
             descricao:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
             tempo: 55,
+            miniatura: "assets/imagens/filme-1.jpg",
           },
         ],
       },
@@ -85,6 +93,7 @@ const filmes = [
             descricao:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
             tempo: 50,
+            miniatura: "assets/imagens/filme-2.jpg",
           },
           {
             id: "2.2",
@@ -92,6 +101,7 @@ const filmes = [
             descricao:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
             tempo: 52,
+            miniatura: "assets/imagens/filme-1.jpg",
           },
           {
             id: "2.3",
@@ -99,6 +109,7 @@ const filmes = [
             descricao:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien, cursus pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero",
             tempo: 55,
+            miniatura: "assets/imagens/filme-1.jpg",
           },
         ],
       },

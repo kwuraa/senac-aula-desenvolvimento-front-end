@@ -22,12 +22,12 @@ button {
 }
 
 a,
-a:visited {
+a:visited:not(.btn) {
   color: #e3e3e3;
   text-decoration: none;
 }
 
-a:hover {
+a:hover:not(.btn) {
   color: #c3c3c3;
   text-decoration: underline;
 }
@@ -108,7 +108,6 @@ a:hover {
   position: sticky;
   z-index: 3;
   top: 0px;
-  
 }
 
 /*.titulo-destaque {
@@ -538,11 +537,11 @@ footer .btn-outline-light--footer {
   color: #757575;
 }
 
-.filme-infos .filme-acoes button {
+.filme-infos .filme-acoes .btn {
   margin: 0px 4px;
 }
 
-.filme-infos .filme-acoes button:first-of-type {
+.filme-infos .filme-acoes a {
   margin-left: 0px;
   margin-right: 12px;
 }

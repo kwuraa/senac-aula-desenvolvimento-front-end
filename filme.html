@@ -50,14 +50,14 @@
                             ..............................................
                             ..............................................
                         </p>
-                        <p class="mb-1 filme-estrelas"><span class="infos-categoria">Estrelando:</span> Ator#1, Ator#1, Ator#3</p>
+                        <p class="mb-1 filme-estrelas"><span class="infos-categoria">Estrelando:</span> Ator#1, Ator#1,
+                            Ator#3</p>
                         <p class="filme-realizacao"><span class="infos-categoria">Criação:</span> Diretor</p>
                         <div class="d-flex mt-4 align-items-center filme-acoes">
-                            <button type="button" class="btn btn-light"> <span
-                                    class="mdi mdi-play"></span>Assistir</button>
+                            <a type="button" class="btn btn-light js-ver"> <span
+                                    class="mdi mdi-play"></span>Assistir</a>
                             <button type="button" class="btn btn-outline-light rounded-circle js-adicionar"
-                            data-adicionado="0"><span
-                                    class="mdi mdi-plus"></span></button>
+                                data-adicionado="0"><span class="mdi mdi-plus"></span></button>
                             <button type="button" class="btn btn-outline-light rounded-circle js-like"><span
                                     class="mdi mdi-thumb-up-outline"></span></button>
                             <button type="button" class="btn btn-outline-light rounded-circle js-deslike"><span
@@ -66,44 +66,77 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-5 bloco-serie-temporadas d-none">
-                <div class="col-12 d-flex justify-content-between">
-                    <div>
-                        <h3>Episodios</h3>
-                        <p class="mb-0 serie-tipo">Série</p>
+            <template id="baseFilmeEpisodios">
+                <div class="row mt-5 bloco-serie-temporadas">
+                    <div class="col-12 d-flex justify-content-between">
+                        <div>
+                            <h3>Episodios</h3>
+                            <p class="mb-0 serie-tipo">Minissérie</p>
+                        </div>
+                        <div>
+                            <select class="form-select select-temporadas mb-1" aria-label="Temporada">
+                                <optgroup label="Selecione a Temporada">
+                                </optgroup>
+                            </select>
+                            <p class="mb-0 serie-lancamento-info"> Ano de Lançamento: <span>2021</span></p>
+                        </div>
                     </div>
-                    <div>
-                        <select class="form-select select-temporadas mb-1" aria-label="Default select example">
-                            <optgroup label="Selecione a Temporada">
-                                <option value="1">1 Temporada</option>
-                            </optgroup>
-                        </select>
-                        <p class="mb-0 serie-lancamento-info"> Ano de Lançamento 2021</p>
+                    <div class="col-12 ">
+                        <hr class="my-3">
+                    </div>
+                    <div class="col-12">
+                        <ul class="d-flex flex-wrap lista-base listagem-filmes listagem-filmes--linha">
+                            <template>
+                            <li class="listagem-filmes-item listagem-filmes-item--conteudo">
+                                <a href="#">
+                                    <figure class="listagem-filmes-miniatura faixa-gradient">
+                                        <img src="assets/imagens/filme-2.jpg" class="img-fluid">
+                                    </figure>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-0 listagem-filmes-nome flex-grow-1"><strong>Ep 1#</strong></p>
+                                        <p class="mb-0 listagem-filmes-minutos">25 <br />min</p>
+                                    </div>
+                                    <p class="pt-3 listagem-filmes-descricao">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
+                                        cursus
+                                        pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem
+                                        libero.
+                                    </p>
+                                </a>
+                            </li>
+                        </template>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-12 ">
-                    <hr class="my-3">
-                </div>
-                <div class="col-12">
-                    <ul class="d-flex flex-wrap lista-base listagem-filmes listagem-filmes--linha">
-                        <li class="listagem-filmes-item listagem-filmes-item--conteudo">
-                            <a href="#">
-                                <figure class="listagem-filmes-miniatura">
-                                    <img src="assets/imagens/filme-2.jpg" class="img-fluid">
-                                </figure>
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-0 listagem-filmes-nome flex-grow-1"><strong>Ep 1#</strong></p>
-                                    <p class="mb-0 listagem-filmes-minutos">25 <br />min</p>
-                                </div>
-                                <p class="pt-3 listagem-filmes-descricao">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus sapien,
-                                    cursus
-                                    pharetra porta et, tincidunt ut sem. Phasellus eu faucibus odio. Morbi lorem libero.
-                                </p>
-                            </a>
-                        </li>
-                </div>
-            </div>
+            </template>
+            <template id="baseFilmeVideos">
+                <div class="row mt-5 videos-conteudo-base">
+                    <div class="col-12 d-flex justify-content-between">
+                        <div>
+                            <h3>Videos e Trailers</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <hr class="my-3">
+                    </div>
+                    <div class="col-12">
+                        <ul class="d-flex flex-wrap lista-base listagem-filmes listagem-filmes--linha">
+                            <template>
+                                <li class="listagem-filmes-item listagem-filmes-item--conteudo">
+                                    <a href="#">
+                                        <figure class="listagem-filmes-miniatura">
+                                            <img src="assets/imagens/filme-2.jpg" class="img-fluid">
+                                        </figure>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-0 listagem-filmes-nome flex-grow-1"><strong>Ep 1#</strong></p>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+            </template>
+        </div>
+        </div>
+        </template>
         </div>
     </section>
     <footer class="pt-5 pb-2">

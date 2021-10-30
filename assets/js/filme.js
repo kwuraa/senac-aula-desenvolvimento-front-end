@@ -1,4 +1,5 @@
 let filme;
+let eFilme;
 
 function carregarFilme() {
   const searchParams = new URLSearchParams(window.location.search);
@@ -15,7 +16,7 @@ function montarFilme() {
     `url(${filme.imagem})`
   );
 
-  const eFilme = !filme.temporadas || !filme.temporadas.length;
+  eFilme = !filme.temporadas || !filme.temporadas.length;
 
   $(".filme-background .filme-none").text(filme.nome);
   $(".filme-background .filme-resumo").text(filme.descricao);
@@ -61,7 +62,9 @@ function montarFilme() {
 
   if (temLike.length) {
     $(".js-deslike").addClass("d-none");
-    $(".js-like span").removeClass("mdi-thumb-up-outline").addClass("mdi-thumb-up");
+    $(".js-like span")
+      .removeClass("mdi-thumb-up-outline")
+      .addClass("mdi-thumb-up");
   } else if (temDeslike.length) {
     $(".js-like").addClass("d-none");
     $(".js-deslike span")
@@ -72,7 +75,102 @@ function montarFilme() {
   $(".js-adicionar").on("click", adicionarMinhaLista);
   $(".js-like, .js-deslike").on("click", likeDeslikeFilme);
 
+  let url = `ver.html?filme=${filme.id}`;
+  if (eFilme) url += `&nome=${filme.nome}`;
+  else {
+    const temporada_atual = filme.temporadas.filter(
+      (el) => el.temporada === 1
+    )[0];
+    url += `&ep=${temporada_atual.episodios[0].id}`;
+  }
+  $(".js-ver").attr("href", url);
+
   blocoFilme.removeClass("d-none");
+}
+
+function montarEpisodios() {
+  if (!filme.temporadas) return;
+
+  const template_conteudo = $("template#baseFilmeEpisodios");
+
+  const conteudo = $(template_conteudo.prop("content")).clone();
+
+  filme.temporadas.forEach((temporada) => {
+    const item = $("<option></option>")
+      .attr("value", temporada.temporada)
+      .text(`${temporada.temporada}ª Temporada`);
+    conteudo.find("select optgroup").append(item);
+  });
+
+  conteudo.find(".select-temporadas").on("change", mudarTemporada);
+
+  conteudo.appendTo(template_conteudo.parent());
+
+  listarEpisodios(1);
+}
+
+function mudarTemporada(event) {
+  const temporada = Number(event.currentTarget.value);
+
+  $(".bloco-serie-temporadas .listagem-filmes-item").remove();
+  listarEpisodios(temporada);
+}
+
+function listarEpisodios(temporada) {
+  const temporada_atual = filme.temporadas.filter(
+    (el) => el.temporada === temporada
+  );
+
+  $(".bloco-serie-temporadas .serie-lancamento-info span").text(
+    temporada_atual[0].ano_lancamento
+  );
+
+  const videos = temporada_atual.reduce((total, atual) => {
+    total.push(...atual.episodios);
+    return total;
+  }, []);
+
+  const item_template = $(
+    $(".bloco-serie-temporadas .listagem-filmes template").prop("content")
+  );
+
+  videos.forEach((video) => {
+    const item = item_template.clone();
+    item
+      .find("a")
+      .attr(
+        "href",
+        `ver.html?filme=${filme.id}&ep=${video.id}&nome=${video.nome}`
+      );
+    item.find("img").attr("src", video.miniatura);
+    item.find(".listagem-filmes-nome strong").text(video.nome);
+    item.find(".listagem-filmes-minutos").html(`${video.tempo} <br /> min`);
+    item.find(".listagem-filmes-descricao").text(video.descricao);
+    $(item[0].cloneNode(true)).appendTo(
+      ".bloco-serie-temporadas .listagem-filmes"
+    );
+  });
+}
+
+function montarVideos() {
+  if (!filme.videos) return;
+
+  const template_conteudo = $("template#baseFilmeVideos");
+
+  const conteudo = $(template_conteudo.prop("content")).clone();
+
+  filme.videos.forEach((video) => {
+    const item_template = conteudo.find("template");
+
+    const item = $(item_template.prop("content"))
+      .find(".listagem-filmes-item")
+      .clone();
+    item.find("img").attr("src", video.miniatura);
+    item.find("p strong").text(video.nome);
+    $(item[0].cloneNode(true)).appendTo(conteudo.find("ul.listagem-filmes"));
+  });
+
+  conteudo.appendTo(template_conteudo.parent());
 }
 
 function adicionarMinhaLista(event) {
@@ -149,6 +247,8 @@ function likeDeslikeFilme(event) {
 
 $(document).ready(function () {
   montarFilme();
+  if (eFilme) montarVideos();
+  else montarEpisodios();
 });
 
 carregarFilme();
