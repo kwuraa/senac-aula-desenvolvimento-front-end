@@ -1,0 +1,107 @@
+@media screen and (min-width: 768px) {
+    .form-inicio .form-control {
+      min-width: calc(1.5rem + 1rem + 2px);
+      padding: 0.5rem 1rem;
+      font-size: 1.25rem;
+  
+      width: 420px;
+    }
+  
+    .form-inicio .form-control:focus,
+    .form-inicio .btn:focus {
+      box-shadow: initial;
+    }
+  
+    .form-inicio .btn {
+      padding: 0.5rem 1rem;
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .titulo-inicio {
+      margin: auto;
+      max-width: 580px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .titulo-destaque {
+      font-size: 26px;
+    }
+  
+    .bloco-perfil .perfil-img-conteudo {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .bloco-perfil {
+      width: 100%;
+      min-width: 150px;
+    }
+  
+    .navegacao-rodape--esticado {
+      padding-right: initial;
+    }
+  
+    .menu-perfil-itens {
+      left: 0px !important;
+    }
+  
+    .header-icons {
+      font-size: 26px;
+    }
+  
+    #blocoNovidades .badge {
+      font-size: 10px;
+      top: 10px;
+    }
+  
+    .filme-background > .row {
+      background: black;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 1) 5%,
+        rgba(0, 0, 0, 0.6839110644257703) 100%
+      );
+    }
+  
+    .listagem-filmes .listagem-filmes-item.listagem-filmes-item--conteudo {
+      width: 33%;
+    }
+  
+    .carousel-control-next,
+    .carousel-control-prev {
+      width: 8%;
+      max-height: initial;
+      max-width: initial;
+    }
+  
+    .carousel-control-next .carousel-next-icon,
+    .carousel-control-prev .carousel-prev-icon {
+      font-size: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .titulo-destaque {
+      font-size: 20px;
+    }
+  
+    .pagina-cabecalho {
+      background-color: transparent;
+    }
+  
+    .pagina-cabecalho .cabecalho-logo {
+      width: 90px;
+    }
+  
+    .bloco-perfil {
+      margin: 8px 10px;
+    }
+  
+    .listagem-filmes .listagem-filmes-item.listagem-filmes-item--conteudo {
+      width: 50%;
+    }
+  }
+  

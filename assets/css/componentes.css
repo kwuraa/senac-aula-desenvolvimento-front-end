@@ -1,0 +1,94 @@
+.img-responsiva {
+    width: 100%;
+    height: auto;
+  }
+  
+  .imagem-background {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .imagem-background.imagem-background--cover {
+    background-size: cover;
+  }
+  
+  .text-centralizado {
+    text-align: center;
+  }
+  
+  .conteudo-base {
+    padding: 16px 0px;
+  }
+  
+  .lista-base {
+    padding: 0px;
+    list-style-type: none;
+  }
+  
+  .faixa-gradient::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    z-index: 1;
+  
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 5%,
+      rgba(0, 0, 0, 0) 95%
+    );
+  }
+  
+  .faixa-gradient--metade::before {
+    height: 50%;
+  }
+  
+  .sem-cursor {
+    cursor: none;
+  }
+  
+  .listagem-filmes.listagem-filmes--linha {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  
+  .listagem-filmes .listagem-filmes-item {
+    width: 20%;
+    padding: 1px;
+    height: 117px;
+  }
+  
+  .listagem-filmes .listagem-filmes-item.listagem-filmes-item--conteudo {
+    height: auto;
+    padding: 12px 8px 0px 8px;
+  }
+  
+  .listagem-filmes .listagem-filmes-item .listagem-filmes-descricao {
+    font-size: 13px;
+    color: #757575;
+  }
+  
+  .listagem-filmes .listagem-filmes-item .listagem-filmes-minutos {
+    font-size: 14px;
+    color: #757575;
+  }
+  
+  .listagem-filmes .listagem-filmes-item .listagem-filmes-miniatura {
+    position: relative;
+  }
+  
+  .listagem-filmes
+    .listagem-filmes-item:not(.listagem-filmes-item-conteudo):first-child {
+    padding-left: 0px;
+  }
+  
+  .listagem-filmes .listagem-filmes-item a {
+    display: block;
+    text-decoration: none;
+    /* max-width: 215px;*/
+  }
+  

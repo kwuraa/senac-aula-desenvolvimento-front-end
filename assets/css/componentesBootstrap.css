@@ -1,0 +1,54 @@
+#accordionPerguntas.accordion {
+    max-width: 750px;
+    width: 100%;
+  
+    margin: 30px auto 0px auto;
+  
+    background-color: transparent;
+  }
+  
+  #accordionPerguntas .accordion-item {
+    margin: 8px 0px;
+    border: initial;
+    border-radius: initial;
+  
+    background-color: transparent;
+  }
+  
+  #accordionPerguntas .accordion-header .accordion-button,
+  #accordionPerguntas .accordion-body {
+    border-radius: initial;
+    background-color: #303030;
+    color: white;
+  
+    padding: 22px 20px;
+  }
+  
+  .carousel .carousel-navegacao {
+    position: absolute;
+    top: -25px;
+    right: 0px;
+    left: initial;
+    margin: 0px;
+    z-index: 1;
+  }
+  
+  /*.carousel .carousel-navegacao button {
+    border: none;
+    background-color: #555354;
+  } */
+  
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 100%;
+    max-width: 75px;
+    min-width: 38px;
+    z-index: 2;
+    /*bottom: initial;*/
+  }
+  
+  .carousel-control-next:hover,
+  .carousel-control-prev:hover {
+    opacity: 1;
+    background-color: rgba(46, 46, 46, 0.6);
+  }
